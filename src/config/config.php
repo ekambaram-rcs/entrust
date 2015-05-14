@@ -23,6 +23,17 @@ return array(
 	*/
 	'roles_table' => 'roles',
 
+    /*
+    |--------------------------------------------------------------------------
+    | Entrust Roles Table columns
+    |--------------------------------------------------------------------------
+    |
+    | This is the Roles table column name used by Entrust to save roles name to the database.
+    |
+    */
+    'roles_table_column_id' => 'role_id',
+    'roles_table_column_name' => 'name',
+
 	/*
 	|--------------------------------------------------------------------------
 	| Entrust Permission Model
@@ -44,6 +55,16 @@ return array(
 	*/
 	'permissions_table' => 'permissions',
 
+    /*
+    |--------------------------------------------------------------------------
+    | Entrust Permissions Table column name
+    |--------------------------------------------------------------------------
+    |
+    | This is the Permissions table column name used by Entrust to save permissions to the database.
+    |
+    */
+    'permissions_table_column_name' => 'name',
+
 	/*
 	|--------------------------------------------------------------------------
 	| Entrust permission_role Table
@@ -63,5 +84,15 @@ return array(
 	|
 	*/
 	'assigned_roles_table' => 'assigned_roles',
+
+    /*
+    |--------------------------------------------------------------------------
+    | Entrust User Table columns
+    |--------------------------------------------------------------------------
+    |
+    | This is the Users table column name used by Entrust to save permissions to the database.
+    |
+    */
+    'users_table_column_id' => 'user_id',
 
 );
