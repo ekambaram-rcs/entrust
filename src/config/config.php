@@ -95,4 +95,14 @@ return array(
     */
     'users_table_column_id' => 'user_id',
 
+    /*
+    |--------------------------------------------------------------------------
+    | Entrust User-Groups connection Table column
+    |--------------------------------------------------------------------------
+    |
+    | This is the Users table column name used by Entrust to save permissions to the database.
+    |
+    */
+    'users_groups_connection_table_column_id' => null,
+
 );

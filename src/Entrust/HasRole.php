@@ -12,7 +12,12 @@ trait HasRole
      */
     public function roles()
     {
-        return $this->belongsToMany(Config::get('entrust::role'), Config::get('entrust::assigned_roles_table'), Config::get('entrust::users_table_column_id'), Config::get('entrust::roles_table_column_id'));
+        if(Config::get('entrust::users_groups_connection_table_column_id')){
+            $connection_table_id = Config::get('entrust::users_groups_connection_table_column_id');
+        } else{
+            $connection_table_id = Config::get('entrust::users_table_column_id');
+        }
+        return $this->belongsToMany(Config::get('entrust::role'), Config::get('entrust::assigned_roles_table'), $connection_table_id, Config::get('entrust::roles_table_column_id'));
     }
 
     /**
