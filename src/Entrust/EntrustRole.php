@@ -19,9 +19,7 @@ class EntrustRole extends Ardent
      *
      * @var array
      */
-    public static $rules = array(
-        'name' => 'required|between:4,128'
-    );
+    public static $rules = array();
 
     /**
      * Creates a new instance of the model.
