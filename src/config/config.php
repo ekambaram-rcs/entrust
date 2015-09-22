@@ -19,7 +19,7 @@ return [
     | the role if it is in a different namespace.
     |
     */
-    'role' => 'App\Role',
+    'role' => 'Role',
 
     /*
     |--------------------------------------------------------------------------
@@ -33,6 +33,17 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | Entrust Roles Table columns
+    |--------------------------------------------------------------------------
+    |
+    | This is the Roles table column name used by Entrust to save roles name to the database.
+    |
+    */
+    'roles_table_column_id' => 'role_id',
+    'roles_table_column_name' => 'name',
+
+    /*
+    |--------------------------------------------------------------------------
     | Entrust Permission Model
     |--------------------------------------------------------------------------
     |
@@ -40,7 +51,7 @@ return [
     | Update the permission if it is in a different namespace.
     |
     */
-    'permission' => 'App\Permission',
+    'permission' => 'Permission',
 
     /*
     |--------------------------------------------------------------------------
@@ -52,6 +63,16 @@ return [
     |
     */
     'permissions_table' => 'permissions',
+
+    /*
+    |--------------------------------------------------------------------------
+    | Entrust Permissions Table column name
+    |--------------------------------------------------------------------------
+    |
+    | This is the Permissions table column name used by Entrust to save permissions to the database.
+    |
+    */
+    'permissions_table_column_name' => 'name',
 
     /*
     |--------------------------------------------------------------------------
@@ -81,5 +102,24 @@ return [
     |--------------------------------------------------------------------------
     */
     'user_foreign_key' => 'user_id',
+
+    /*
+    |--------------------------------------------------------------------------
+    | Entrust User Table columns
+    |--------------------------------------------------------------------------
+    |
+    | This is the Users table column name used by Entrust to save permissions to the database.
+    |
+    */
+    'users_table_column_id' => 'user_id',
+    /*
+    |--------------------------------------------------------------------------
+    | Entrust User-Groups connection Table column
+    |--------------------------------------------------------------------------
+    |
+    | This is the Users table column name used by Entrust to save permissions to the database.
+    |
+    */
+    'users_groups_connection_table_column_id' => null,
 
 ];
