@@ -95,33 +95,46 @@ trait EntrustUserTrait
      */
     public function can($permission, $requireAll = false)
     {
-        if (is_array($permission)) {
-            foreach ($permission as $permName) {
-                $hasPerm = $this->can($permName);
-
-                if ($hasPerm && !$requireAll) {
-                    return true;
-                } elseif (!$hasPerm && $requireAll) {
-                    return false;
-                }
+        foreach ($this->roles as $role) {
+            // Deprecated permission value within the role table.
+            if (is_array($role->permissions) && in_array($permission, $role->permissions) ) {
+                return true;
             }
-
-            // If we've made it this far and $requireAll is FALSE, then NONE of the perms were found
-            // If we've made it this far and $requireAll is TRUE, then ALL of the perms were found.
-            // Return the value of $requireAll;
-            return $requireAll;
-        } else {
-            foreach ($this->roles as $role) {
-                // Validate against the Permission table
-                foreach ($role->perms as $perm) {
-                    if (str_is( $permission, $perm->name) ) {
-                        return true;
-                    }
+            // Validate against the Permission table
+            foreach ($role->perms as $perm) {
+                if ($perm->{Config::get('entrust::permissions_table_column_name')} == $permission) {
+                    return true;
                 }
             }
         }
-
         return false;
+//        if (is_array($permission)) {
+//            foreach ($permission as $permName) {
+//                $hasPerm = $this->can($permName);
+//
+//                if ($hasPerm && !$requireAll) {
+//                    return true;
+//                } elseif (!$hasPerm && $requireAll) {
+//                    return false;
+//                }
+//            }
+//
+//            // If we've made it this far and $requireAll is FALSE, then NONE of the perms were found
+//            // If we've made it this far and $requireAll is TRUE, then ALL of the perms were found.
+//            // Return the value of $requireAll;
+//            return $requireAll;
+//        } else {
+//            foreach ($this->roles as $role) {
+//                // Validate against the Permission table
+//                foreach ($role->perms as $perm) {
+//                    if (str_is( $permission, $perm->name) ) {
+//                        return true;
+//                    }
+//                }
+//            }
+//        }
+//
+//        return false;
     }
 
     /**
